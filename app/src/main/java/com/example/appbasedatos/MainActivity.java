@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -66,6 +67,10 @@ public class MainActivity extends AppCompatActivity {
         Cursor cursor = db.query("operas", null, null, null,
                 null, null, null);
 
+        // Hace lo mismo que la anterior, pero con el SQL directamente)
+        // Cursor cursor = db.rawQuery("SELECT * FROM OPERAS", null);
+
+        mostrarTabla(cursor);
         db.close();
     }
 
@@ -78,21 +83,67 @@ public class MainActivity extends AppCompatActivity {
         db.insert(EstructuraBD.EstructuraOperas.TABLE_NAME_OPERAS, null, values);
     }
 
-    // Metodo para mostrar la tabla
+    // Metodo para mostrar la tabla. Es importante asegurarse de que la abla cabe donde la quiero mostrar.
     private void mostrarTabla(Cursor c) {
-        //los mostramos en el cuadro de texto que tenemos en el layout
+        // Los mostramos en el cuadro de texto que tenemos en el layout.
         txtTexto.append("\n Tabla operas \n-----------");
         c.moveToFirst();
+
         int nfilas = c.getCount();
         int ncolumnas = c.getColumnCount();
         String fila = "\n";
-        for (int i = 0; i < nfilas; i++) {
+
+        for (int i = 0; i < nfilas; i++) { // Va fila a fila.
             fila = "\n";
-            for (int j = 0; j < ncolumnas; j++) {
+            for (int j = 0; j < ncolumnas; j++) { // Va campo a campo.
                 fila = fila + c.getString(j) + " ";
             }
             txtTexto.append(fila);
             c.moveToNext();
         }
+    }
+
+    public void buscar(View view) {
+        // Hacemos que la BD sea
+        db = helper.getReadableDatabase();
+
+        // Datos para la query.
+        String[] columns = {EstructuraBD.EstructuraOperas.COLUMN_NAME_TITULO, EstructuraBD.EstructuraOperas.COLUMN_NAME_YEAR};
+        String selection = EstructuraBD.EstructuraOperas.COLUMN_NAME_YEAR + " > 1750";
+        String[] selectionArgs = null;
+        String groupBy = null;
+        String having = null;
+        String orderBy = EstructuraBD.EstructuraOperas.COLUMN_NAME_YEAR;
+
+        Cursor cursor = db.query(EstructuraBD.EstructuraOperas.TABLE_NAME_OPERAS, columns, selection, selectionArgs, groupBy, having, orderBy);
+
+        // Limpia el textView. No lo ha pedido.
+        txtTexto.setText("");
+
+        //mostrar contenido
+        mostrarTabla(cursor);
+
+        db.close();
+    }
+
+    // Este no está asignado a ningún botón. Si lo ponemos en el onClick() de buscar, funciona bien.
+    public void consultaYears(View view) {
+        db = helper.getReadableDatabase();
+
+        String[] columns = {EstructuraBD.EstructuraOperas.COLUMN_NAME_TITULO, EstructuraBD.EstructuraOperas.COLUMN_NAME_YEAR};
+        String selection = EstructuraBD.EstructuraOperas.COLUMN_NAME_YEAR + " in (?,?)";
+        String[] selectionArgs = {"1727", "1728"};
+        String groupBy = null;
+        String having = null;
+        String orderBy = EstructuraBD.EstructuraOperas.COLUMN_NAME_YEAR;
+
+        Cursor cursor = db.query(EstructuraBD.EstructuraOperas.TABLE_NAME_OPERAS, columns, selection, selectionArgs, groupBy, having, orderBy);
+
+        // Limpia el textView. No lo ha pedido.
+        txtTexto.setText("");
+        //mostrar contenido
+        mostrarTabla(cursor);
+
+        db.close();
     }
 }
