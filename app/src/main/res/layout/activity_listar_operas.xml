@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ListarOperas">
+
+    <Button
+        android:id="@+id/btnSiguienteListar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Siguiente" />
+
+    <TextView
+        android:id="@+id/textViewTitulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Título"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/textViewCompositor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Compositor"
+        android:textSize="18sp" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="wrap_content"
+        android:layout_height="13dp"
+        android:background="@color/purple_200" />
+
+    <ListView
+        android:id="@+id/lstListaModif"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+    </ListView>
+</LinearLayout>
