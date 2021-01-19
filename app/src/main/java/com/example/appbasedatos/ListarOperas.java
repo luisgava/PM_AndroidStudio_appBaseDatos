@@ -21,6 +21,18 @@ public class ListarOperas extends AppCompatActivity {
 
         txtTexto1 = findViewById(R.id.textViewTitulo);
         txtTexto1 = findViewById(R.id.textViewCompositor);
+        lv = findViewById(R.id.lstListaModif);
+        
+        consultaOperas();
 
+       // lv.setOnClickListener(this);
+
+    }
+
+    private void consultaOperas() {
+        helper = new SQLiteHelper(this);
+
+        db = helper.getReadableDatabase();
+        Cursor cursor = db.query(EstructuraBD.EstructuraOperas.TABLE_NAME_OPERAS, null,null, null, null, null, null);
     }
 }
