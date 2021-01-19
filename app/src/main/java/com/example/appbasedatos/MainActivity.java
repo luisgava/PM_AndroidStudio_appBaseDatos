@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         db = helper.getWritableDatabase();
 
         //Creamos los datos de la tabla
-        ContentValues values = new ContentValues();
+        ContentValues values = new ContentValues(); //objeto para el insert
         values.put(EstructuraBD.EstructuraOperas.COLUMN_NAME_TITULO, "Don Giovani");
         values.put(EstructuraBD.EstructuraOperas.COLUMN_NAME_COMPOSITOR, "W.A. Mozart");
         values.put(EstructuraBD.EstructuraOperas.COLUMN_NAME_YEAR, 1787);

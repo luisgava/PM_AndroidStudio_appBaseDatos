@@ -28,6 +28,6 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // Borra la tabla y la crea de nuevo. No sería lo más correcto.
         db.execSQL(EstructuraBD.SQL_DELETE_ENTRIES);
-        db.execSQL(EstructuraBD.SQL_CREATE_ENTRIES);
+
     }
 }
