@@ -6,26 +6,32 @@
     android:orientation="vertical"
     tools:context=".ListarOperas">
 
-    <Button
-        android:id="@+id/btnSiguiente"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="siguienteActividad"
-        android:text="Siguiente" />
-
     <TextView
-        android:id="@+id/textViewTitulo"
+        android:id="@+id/textViewTitulo2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Título"
         android:textSize="24sp" />
 
     <TextView
-        android:id="@+id/textViewCompositor"
+        android:id="@+id/textViewCompositor2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Compositor"
         android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textViewYear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Año"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/btnModificar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Modificar" />
 
     <View
         android:id="@+id/view"
@@ -34,7 +40,7 @@
         android:background="@color/purple_200" />
 
     <ListView
-        android:id="@+id/lstListaModif"
+        android:id="@+id/lstListaModif2"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 

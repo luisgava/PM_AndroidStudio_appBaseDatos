@@ -1,5 +1,6 @@
 package com.example.appbasedatos;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -62,5 +63,10 @@ public class ListarOperas extends AppCompatActivity implements AdapterView.OnIte
         // Mostramos el resultado
         txtTexto1.setText(_id + ", " + titulo);
         txtTexto2.setText(compositor + ", Estreno: " + year);
+    }
+
+    public void siguienteActividad(View view) {
+        Intent i = new Intent(this, ModificarBD.class);
+        startActivity(i);
     }
 }
