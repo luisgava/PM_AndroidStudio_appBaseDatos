@@ -24,7 +24,8 @@
         android:id="@+id/btnSiguiente"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Siguiente" />
+        android:text="Siguiente"
+        android:onClick="siguienteActividad"/>
 
     <TextView
         android:id="@+id/txtValor"

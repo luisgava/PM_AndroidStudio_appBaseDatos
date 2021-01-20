@@ -1,6 +1,7 @@
 package com.example.appbasedatos;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -145,5 +146,10 @@ public class MainActivity extends AppCompatActivity {
         mostrarTabla(cursor);
 
         db.close();
+    }
+
+    public void siguienteActividad(View view) {
+        Intent i = new Intent(this, ListarOperas.class);
+        startActivity(i);
     }
 }
