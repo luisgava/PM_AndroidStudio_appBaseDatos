@@ -69,4 +69,5 @@ public class ListarOperas extends AppCompatActivity implements AdapterView.OnIte
         Intent i = new Intent(this, ModificarBD.class);
         startActivity(i);
     }
+
 }

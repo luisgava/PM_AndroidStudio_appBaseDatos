@@ -6,32 +6,33 @@
     android:orientation="vertical"
     tools:context=".ListarOperas">
 
-    <TextView
-        android:id="@+id/textViewTitulo2"
+    <EditText
+        android:id="@+id/editTextTitulo2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Título"
         android:textSize="24sp" />
 
-    <TextView
-        android:id="@+id/textViewCompositor2"
+    <EditText
+        android:id="@+id/editTextCompositor2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Compositor"
         android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/textViewYear"
+    <EditText
+        android:id="@+id/editTextYear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Año"
+        android:hint="Año"
         android:textSize="18sp" />
 
     <Button
         android:id="@+id/btnModificar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Modificar" />
+        android:text="Modificar"
+        android:onClick="modificarDB"/>
 
     <View
         android:id="@+id/view"
